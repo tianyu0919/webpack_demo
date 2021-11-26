@@ -1,0 +1,30 @@
+/* 文字动画特效 */
+* {
+  margin: 0px;
+  padding: 0px;
+  /* border: 0px; */
+  outline: none;
+  list-style: none;
+  user-select: none;
+}
+
+body {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.textItem {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transition: all .1s;
+  transform: translate(-50%, -50%);
+}
+
+.moveText {
+  cursor: move;
+  color: red;
+  transition: all 0s;
+}
