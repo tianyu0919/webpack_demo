@@ -1,86 +1,30 @@
-/* 圆形动画 */
+/* 文字动画特效 */
 * {
   margin: 0px;
   padding: 0px;
+  /* border: 0px; */
+  outline: none;
+  list-style: none;
+  user-select: none;
 }
 
 body {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
   overflow: hidden;
 }
 
-#container {
-  height: 100vh;
-  width: 100vw;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#container .item {
-  position: relative;
-  width: var(--width);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  transition: all .3s;
-}
-
-#container .item .items {
-  /* padding: 10px; */
-  box-sizing: border-box;
-  /* border: 1px solid #ccc; */
-  background-color: rgb(57, 165, 214)
-}
-
-#container .item .items+.items {
-  margin-top: 20px;
-}
-
-#container.round {
-  transform-style: preserve-3d;
-  /* perspective: 1500px; */
-  animation: rotate linear 10s infinite;
-}
-
-#container.round .item {
-  position: absolute;
-  transform: rotateY(var(--rotate));
-  transform-style: preserve-3d;
-  /* perspective: 3200px; */
-  --w: 40px;
-  --h: 40px;
-}
-
-#container.round .item .items {
-  margin-top: 0px;
-  position: absolute;
+.textItem {
+  position: fixed;
   left: 50%;
   top: 50%;
-  transform: rotateX(var(--rotate)) translate3d(-50%, -50%, 260px);
-  width: var(--w);
-  height: var(--h);
-  text-align: center;
-  line-height: var(--h);
+  transition: all .1s;
+  transform: translate(-50%, -50%);
 }
 
-#container.round .item .items.round {
-  width: auto;
-  height: auto;
-  padding: 5px;
-  box-sizing: border-box;
-  border-radius: 50%;
-
-}
-
-@keyframes rotate {
-
-  0% {
-    transform: rotateX(0deg) rotateY(0deg);
-  }
-
-  100% {
-    transform: rotateX(360deg) rotateY(360deg);
-  }
+.moveText {
+  cursor: move;
+  color: red;
+  transition: all 0s;
 }
