@@ -1,41 +1,52 @@
-const path = require('path');
-const RemoveStrict = require('./plugins/RemoveStrict');
+/*
+ * @Author: tianyu
+ * @Date: 2021-11-05 15:29:28
+ * @Description:
+ */
+const path = require("path");
+const RemoveStrict = require("./plugins/RemoveStrict");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const WebpackBar = require("webpackbar");
 
 module.exports = {
-  mode: 'production',
-  entry: [
-    path.resolve(__dirname, 'src/index.js'),
-  ],
+  mode: "production",
+  entry: [path.resolve(__dirname, "src/index.js")],
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    filename: "bundle.js",
+    library: {
+      name: "openImgLayer",
+      type: "umd",
+      // auxiliaryComment: 'Test Comment'
+    },
+    globalObject: "this",
+    path: path.resolve(__dirname, "dist"),
   },
   module: {
     rules: [
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader']
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
       {
         test: /\.js?/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           options: {
             presets: [
               [
-                '@babel/preset-env',
+                "@babel/preset-env",
                 {
                   modules: false,
                   useBuiltIns: "usage",
-                  corejs: 2
-                }
-              ]
+                  corejs: 2,
+                },
+              ],
             ],
-          }
-        }
-      }
-    ]
+          },
+        },
+      },
+    ],
   },
-  plugins: [new RemoveStrict()]
-}
+  plugins: [new RemoveStrict(), new MiniCssExtractPlugin(), new WebpackBar()],
+};

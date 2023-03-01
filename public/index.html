@@ -9,6 +9,7 @@
   <meta name="Author" content="归宿" />
   <meta name="Keywords" content="关键字" />
   <title>网页标题</title>
+  <link rel="stylesheet" href="../dist/main.css">
 </head>
 
 <body>
@@ -19,5 +20,14 @@
   </div>
 </body>
 <script src="../dist/bundle.js"></script>
+<script type="module">
+  // import openImgLayer from '../dist/bundle.js';
+  let oInput = document.querySelector('#text');
+  let oBody = document.querySelector('body');
+  let letterSpaceNum = 20; // 字体间距
+  console.log(openImgLayer);
+
+  // render(oInput.value, oBody, letterSpaceNum);
+</script>
 
 </html>

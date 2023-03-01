@@ -1,4 +1,4 @@
-import './index.css';
+// import './index.css';
 // * 圆形动画
 (() => {
   'use strict';

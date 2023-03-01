@@ -1,10 +1,6 @@
 // * 文字动画特效
 import "./index.css";
 
-let oInput = document.querySelector('#text');
-let oBody = document.querySelector('body');
-let oSpan = document.querySelector('#num');
-let letterSpaceNum = 20; // 字体间距
 let fn = null; // 用来存储最后的 动画
 
 // 输入时候，添加文字。
@@ -117,4 +113,4 @@ function animate(resize) {
 }
 
 // 渲染dom
-render(oInput.value, oBody, letterSpaceNum);
+export default render ;

@@ -1,5 +1,5 @@
 // * 文字动画特效
-import "./index.css";
+// import "./index.css";
 
 let oInput = document.querySelector('#text');
 let oBody = document.querySelector('body');
